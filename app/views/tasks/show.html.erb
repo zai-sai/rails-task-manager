@@ -1,7 +1,13 @@
-<p>Task: <%= @task.title %></p>
-<p>Details: <%= @task.details %></p>
-<p>Completed: <%= @task.completed %></p>
-<%= link_to "edit", edit_task_path(@task) %>
-<%= render "btn-delete", task: @task %>
-<br>
-<%= link_to "Back to list", tasks_path %>
+<div class="card shadow-sm rounded mb-4">
+  <h5 class="card-header px-4 py-3"><%= render "checkbox", task: @task %></h5>
+  <div class="card-body px-4 py-3">
+    <h5 class="card-title"><%= @task.title %></h5>
+    <p class="card-text"><%= @task.details %></p>
+    <div class="d-flex">
+      <div class="pe-3 "><%= link_to edit_task_path(@task) do %><i class="fa-solid fa-pen-to-square"></i><% end %></div>
+      <div><%= render "btn-delete", task: @task %></div>
+    </div>
+  </div>
+</div>
+
+<%= link_to "Back to list", root_path %>

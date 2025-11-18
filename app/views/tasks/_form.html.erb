@@ -1,11 +1,19 @@
 <%= form_with model: task do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
-  <%= form.label :details %>
-  <%= form.text_area :details %>
+<div class="rounded p-4 mb-4 border">
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control"  %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :details, class: "form-label" %>
+    <%= form.text_area :details, class: "form-control"  %>
+  </div>
   <% unless task.new_record?%>
-    <%= form.label :completed %>
-    <%= form.check_box :completed %>
+    <div class="mb-3">
+      <%= form.check_box :completed %>
+      <%= form.label :completed, class: "form-label" %>
+    </div>
   <% end %>
-  <%= form.submit %>
+  <%= form.submit class: "btn btn-sm btn-primary" %>
+</div>
 <% end %>
